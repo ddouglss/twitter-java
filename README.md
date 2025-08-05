@@ -1,9 +1,15 @@
+<div align="center">
+  
+![logo2](https://github.com/user-attachments/assets/3844444d-e222-4632-add5-20952c45fc82)
+
+<h1>🛡️ Spring Security 6 + JWT + MySQL
 
 ![Java](https://img.shields.io/badge/language-Java-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+</h1>
 
 
-# 🛡️ Spring Security 6 + JWT + MySQL
+</div>
 
 Este projeto é um backend seguro inspirado na estrutura do Twitter, desenvolvido com foco em **boas práticas de segurança** utilizando o **Spring Security 6**. A autenticação e autorização são feitas por meio de **tokens JWT**, garantindo uma aplicação **100% stateless**, ideal para ambientes modernos e escaláveis.
 
