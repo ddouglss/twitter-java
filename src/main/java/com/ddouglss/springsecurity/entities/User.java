@@ -1,6 +1,8 @@
 package com.ddouglss.springsecurity.entities;
 
+import com.ddouglss.springsecurity.data.dto.LoginRequest;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import java.util.Set;
@@ -61,4 +63,9 @@ public class User {
     }
 
 
+    public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(loginRequest.password(), this.password);
+
+
+    }
 }

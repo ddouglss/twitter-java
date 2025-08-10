@@ -12,9 +12,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
-.app.key
-.app.pub
-.application.properties
+app.key
+app.pub
+application.properties
 
 
 ### IntelliJ IDEA ###
