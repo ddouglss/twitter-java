@@ -3,9 +3,6 @@ target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-!**/main/resources/app.key
-!**/main/resources/app.pub
-!**/main/resources/application.properties
 
 ### STS ###
 .apt_generated
@@ -15,6 +12,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.app.key
+.app.pub
+.application.properties
 
 
 ### IntelliJ IDEA ###
