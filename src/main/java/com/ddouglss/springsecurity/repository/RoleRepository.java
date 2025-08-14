@@ -1,7 +1,6 @@
 package com.ddouglss.springsecurity.repository;
 
 import com.ddouglss.springsecurity.entities.Role;
-import com.ddouglss.springsecurity.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
