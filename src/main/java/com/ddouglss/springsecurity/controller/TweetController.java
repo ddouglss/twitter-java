@@ -1,6 +1,7 @@
 package com.ddouglss.springsecurity.controller;
 
 import com.ddouglss.springsecurity.data.dto.CreateTweetDto;
+import com.ddouglss.springsecurity.entities.Role;
 import com.ddouglss.springsecurity.entities.Tweet;
 import com.ddouglss.springsecurity.repository.TweetRepository;
 import com.ddouglss.springsecurity.repository.UserRepository;
@@ -37,8 +38,14 @@ public class TweetController {
     @DeleteMapping("/tweets/{id}")
     public ResponseEntity<Void> deleteTweet(@PathVariable("id") Long tweetId, JwtAuthenticationToken token) {
 
-        var tweet = tweetRepository.findById(tweetId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Você precisa se autenticar"));
-        if (tweet.getUser().getUserId().equals(UUID.fromString(token.getName())) == false) {
+        var users = userRepository.findById(UUID.fromString(token.getName()));
+        var tweet = tweetRepository.findById(tweetId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        var isAdmin = users.get().getRoles()
+                .stream()
+                .anyMatch(role -> role.getName().equalsIgnoreCase(Role.Values.ADMIN.name().toUpperCase()));
+
+        if (isAdmin || tweet.getUser().getUserId().equals(UUID.fromString(token.getName()))) {
             tweetRepository.deleteById(tweetId);
         }else {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem autorização para este recurso");
